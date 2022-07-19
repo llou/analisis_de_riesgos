@@ -1,0 +1,104 @@
+---
+- nombre: Fuego
+  codigo: M01
+  nivel: 3
+
+- nombre: Daños por agua
+  codigo: M02
+  nivel: 2
+
+- nombre: Desastres naturales
+  codigo: M03
+  nivel: 3
+
+- nombre: Fuga de información
+  codigo: I01
+  nivel: 2
+
+- nombre: Introducción de falsa información
+  codigo: I02
+  nivel: 2
+
+- nombre: Alteración de la información
+  codigo: I03
+  nivel: 2
+
+- nombre: Corrupción de la información
+  codigo: I04
+  nivel: 2
+
+- nombre: Destrucción de información
+  codigo: I05
+  nivel: 3
+
+- nombre: Interceptación de la información
+  codigo: I06
+  nivel: 2
+
+- nombre: Degradación de los soportes de almacenamiento de la información 
+  codigo: I07
+  nivel: 1
+
+- nombre: Difusión de software dañino
+  codigo: S01
+  nivel: 2
+
+- nombre: Errores de mantenimiento/actaualización de programas
+  codigo: S02
+  nivel: 2
+
+- nombre: Errores de mantenimiento/actaualización de equipos
+  codigo: S03
+  nivel: 2
+
+- nombre: Caída del sistema por sobrecarga
+  codigo: S04
+  nivel: 3
+
+- nombre: Pérdida de equipos
+  codigo: S05
+  nivel: 2
+
+- nombre: Indisponibilidad del personal
+  codigo: S06
+  nivel: 2
+
+- nombre: Abuso de privilegios de acceso
+  codigo: U01
+  nivel: 2
+
+- nombre: Acceso no autorizado
+  codigo: U02
+  nivel: 2
+
+- nombre: Errores de usuarios
+  codigo: U03
+  nivel: 1
+
+- nombre: Errores del administrador
+  codigo: U03
+  nivel: 3
+
+- nombre: Errores de configuración
+  codigo: U04
+  nivel: 2
+
+- nombre: Ataque de denegación de servicio
+  codigo: U04
+  nivel: 2
+
+- nombre: Robo
+  codigo: U05
+  nivel: 2
+ 
+- nombre: Indisponibilidad del personal
+  codigo: U06
+  nivel: 1
+
+- nombre: Extorsión
+  codigo: U07
+  nivel: 3
+
+- nombre: Ingeniería social
+  codigo: U08
+  nivel: 2

@@ -1,0 +1,286 @@
+---
+
+
+# Capa de negocio
+# ---------------
+
+# PROCESOS
+
+- nombre: Gestión de clientes
+  tipo: Proceso
+  codigo: P01
+  dependencias: 
+    - R03
+    - I01
+  impactos: [0, 1, 3, 3, 3, 3,  0, 4,  4, 1, 4, 2]
+
+- nombre: Gestión de bicicletas
+  tipo: Proceso
+  codigo: P02
+  dependencias:
+    - R01
+    - R03
+    - I02
+  impactos: [0, 0, 1, 1, 3, 5,  0, 2,  3, 3, 4, 2]
+
+- nombre: Gestión empresarial
+  tipo: Proceso
+  codigo: P03
+  dependencias:
+    - R03
+    - I01
+    - I02
+    - I03
+  impactos: [0, 1, 2, 3, 4, 4,  3, 4,  1, 1, 4, 2]
+
+# SERVICIOS
+
+# ROLES
+
+- nombre: Mecánico de bicicletas
+  tipo: Rol
+  codigo: R01
+
+- nombre: Técnico IT
+  tipo: Rol
+  codigo: R02
+
+- nombre: Administrativo
+  tipo: Rol
+  codigo: R03
+
+# INFORMACIÓN
+
+- nombre: Datos de clientes
+  tipo: Información
+  codigo: I01
+  dependencias:
+    - A01
+
+- nombre: Datos de bicicletas
+  tipo: Información
+  codigo: I02
+  dependencias:
+    - A01
+    - A02
+
+- nombre: Datos de contabilidad
+  tipo: Información
+  codigo: I03
+  dependencias:
+    - A03
+
+# Capa de aplicación
+# --------------------
+
+# APLICACIONES
+
+- nombre: Aplicación de gestión de clientes
+  tipo: Aplicación
+  codigo: A01
+  dependencias:
+    - BD01
+    - RED00
+    - H01
+    - R02
+  vulnerabilidades:
+    - amenaza: I01
+      vulnerabilidad: 1
+    - amenaza: I02 
+      vulnerabilidad: 2
+    - amenaza: U02
+      vulnerabilidad: 1
+
+- nombre: Aplicación de gestión de prestamos
+  tipo: Aplicación
+  codigo: A02
+  dependencias:
+    - BD01
+    - RED00
+    - H01
+    - R02
+    - SAN01
+  vulnerabilidades:
+    - amenaza: I01
+      vulnerabilidad: 1
+    - amenaza: I02 
+      vulnerabilidad: 1
+    - amenaza: U02
+      vulnerabilidad: 2
+
+- nombre: Aplicación de contabilidad
+  tipo: Aplicación
+  codigo: A03
+  dependencias:
+    - BD02
+    - H01
+    - R02
+  vulnerabilidades:
+    - amenaza: I01
+      vulnerabilidad: 2
+    - amenaza: I02 
+      vulnerabilidad: 1
+    - amenaza: U02
+      vulnerabilidad: 1
+
+# BASES DE DATOS
+
+- nombre: Base de datos de gestión
+  tipo: Base de datos
+  codigo: BD01
+  dependencias:
+    - H02
+    - R02
+  vulnerabilidades:
+    - amenaza: I01
+      vulnerabilidad: 1
+    - amenaza: I02 
+      vulnerabilidad: 1
+    - amenaza: U02
+      vulnerabilidad: 2
+
+- nombre: Base de datos de contabilidad
+  tipo: Base de datos
+  codigo: BD02
+  dependencias:
+    - H02
+    - R02
+  vulnerabilidades:
+    - amenaza: I01
+      vulnerabilidad: 2
+    - amenaza: I02 
+      vulnerabilidad: 1
+    - amenaza: U02
+      vulnerabilidad: 2
+
+# Capa tecnológica
+# ----------------
+
+# HOSTS
+  
+- nombre: Servidor de Applicaciones
+  tipo: Host físico
+  codigo: H01
+  dependencias:
+    - SW01
+    - RED01
+    - U01
+    - R02
+  vulnerabilidades:
+    - amenaza: M01
+      vulnerabilidad: 2
+    - amenaza: U03
+      vulnerabilidad: 1
+    - amenaza: M03
+      vulnerabilidad: 1
+
+- nombre: Servidor de Bases de Datos
+  tipo: Host físico
+  codigo: H02
+  dependencias:
+    - SW01
+    - RED01
+    - U01
+    - R02
+  vulnerabilidades:
+    - amenaza: M01
+      vulnerabilidad: 1
+    - amenaza: U03
+      vulnerabilidad: 1
+    - amenaza: M03
+      vulnerabilidad: 1
+
+- nombre: Antivirus
+  tipo: Servicio de Software
+  codigo: SW01
+  dependencias:
+    - RED00
+    - R02
+  vulnerabilidades: 
+    - amenaza: I03
+      vulnerabilidad: 2
+    - amenaza: U03
+      vulnerabilidad: 2
+    - amenaza: U04
+      vulnerabilidad: 2
+      
+# RED
+
+- nombre: Unidad de almacenamiento de datos
+  tipo: Unidad de almacenamiento en red
+  codigo: SAN01
+  dependencias:
+    - U01
+  vulnerabilidades: 
+    - amenaza: M01
+      vulnerabilidad: 1
+    - amenaza: U03
+      vulnerabilidad: 2
+    - amenaza: I07
+      vulnerabilidad: 1
+
+- nombre: Red
+  tipo: Red lógica
+  codigo: RED01
+  dependencias:
+    - R02
+  vulnerabilidades:
+    - amenaza: M03
+      vulnerabilidad: 1
+    - amenaza: I01
+      vulnerabilidad: 1
+    - amenaza: I07
+      vulnerabilidad: 2
+
+- nombre: Router
+  tipo: Router
+  codigo: ROUTER01
+  dependencias:
+    - R02
+  vulnerabilidades:
+    - amenaza: M01
+      vulnerabilidad: 1
+    - amenaza: I01
+      vulnerabilidad: 1
+    - amenaza: U02
+      vulnerabilidad: 2
+
+- nombre: Internet
+  tipo: Red
+  codigo: RED00
+  dependencias:
+    - ROUTER01
+    - R02
+  vulnerabilidades:
+    - amenaza: M03
+      vulnerabilidad: 1
+    - amenaza: I06
+      vulnerabilidad: 2
+    - amenaza: U02
+      vulnerabilidad: 1
+
+# FISICO
+
+- nombre: Sala de CPD
+  tipo: Ubicación física
+  codigo: U01
+  dependencias:
+    - U02
+  vulnerabilidades:
+    - amenaza: M01
+      vulnerabilidad: 2
+    - amenaza: M02
+      vulnerabilidad: 1
+    - amenaza: M03
+      vulnerabilidad: 1
+  
+- nombre: Dependencias
+  tipo: Ubicación física
+  codigo: U02
+  vulnerabilidades:
+    - amenaza: M01
+      vulnerabilidad: 1
+    - amenaza: M02
+      vulnerabilidad: 1
+    - amenaza: M03
+      vulnerabilidad: 2

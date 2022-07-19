@@ -1,0 +1,6 @@
+riesgos.xlsx
+salida.pdf
+salida
+*.pyc
+.mypy_cache/
+.python-version
